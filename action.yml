@@ -1,14 +1,11 @@
-name: Setup Git user
-description: Sets the Git user and email to enable committing
-author: Federico Brigante
+name: Setup Git environment
+description:
+
 branding:
-  icon: chevron-up
-  color: yellow
+  icon: settings
+  color: orange
 
 runs:
-  using: composite
-  steps:
-    - shell: bash
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  using: node20
+  main: dist/main.js
+  
