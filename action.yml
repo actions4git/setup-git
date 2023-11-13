@@ -5,7 +5,13 @@ branding:
   icon: settings
   color: orange
 
+inputs:
+  git-version: {}
+  user:
+    default: github-actions[bot]
+  user-name: {}
+  user-email: {}
+
 runs:
   using: node20
   main: dist/main.js
-  
