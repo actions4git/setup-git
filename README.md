@@ -1,5 +1,7 @@
 # Setup Git environment
 
+🔶 Install and configure Git for GitHub Actions
+
 <table align=center><td>
 
 ```yml
