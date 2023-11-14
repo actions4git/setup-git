@@ -25,7 +25,7 @@
 🔢 Lets you pick a specific version of Git to use (if needed) \
 ⚡ Defaults to using the system version of Git \
 📂 Lets you add additional [safe directories] \
-🔑 Configures Git to use `github.token` when operating against `github.server_url` \
+🔑 Configures Git to use `github.token` when pushing/pulling from `github.server_url` \
 👤 Sets up <b>@github-actions\[bot\]</b> as the default Git author
 
 ## Usage
