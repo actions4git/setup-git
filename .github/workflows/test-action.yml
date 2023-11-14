@@ -37,3 +37,4 @@ jobs:
         uses: ./
       - shell: jq -C . {0}
         run: ${{ toJSON(steps.main.outputs) }}
+      - run: git config --list --show-origin
