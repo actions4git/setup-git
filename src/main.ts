@@ -12,15 +12,15 @@ const githubContext = {
 
 function getNameEmailInput(
   input: string,
-  options: { required: true }
+  options: { required: true },
 ): [string, string];
 function getNameEmailInput(
   input: string,
-  options?: { required?: boolean }
+  options?: { required?: boolean },
 ): [string | null, string | null];
 function getNameEmailInput(
   input: string,
-  options: { required?: boolean } = {}
+  options: { required?: boolean } = {},
 ) {
   const { required = false } = options;
   const githubActionsRe = /^\s*@?github[-_]?actions(?:\[bot\])?\s*$/;
@@ -60,10 +60,12 @@ if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.email ${userEmail}`;
 }
 
-const prefix = new URL(githubServerURL).origin + "/";
-await $({
-  stdio: "inherit",
-})`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
+if (githubToken && githubServerURL) {
+  const prefix = new URL(githubServerURL).origin + "/";
+  await $({
+    stdio: "inherit",
+  })`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
+}
 
 for (const safeDirectory of safeDirectories) {
   await $({
