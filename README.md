@@ -25,7 +25,7 @@
 🔢 Lets you pick a specific version of Git to use (if needed) \
 ⚡ Defaults to using the system version of Git \
 📂 Lets you add additional [safe directories] \
-🔑 Properly configures Git to use the `github.token` by default \
+🔑 Configures Git to use `github.token` when operating against `github.server_url` \
 👤 Sets up <b>@github-actions\[bot\]</b> as the default Git author
 
 ## Usage
@@ -38,10 +38,10 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - uses: actions4git/setup-git@v1
+      - run: git clone "https://github.com/$GITHUB_REPOSITORY.git" . # ✅
       - run: npx --yes prettier --write .
       - run: git add --all
-      - run: git commit --message 'Prettier'
-      - run: git push
+      - run: git commit --message 'Prettier' # ✅
+      - run: git push # ✅
 ```
