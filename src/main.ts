@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 const githubContext = {
   actor: process.env.GITHUB_ACTOR!,
   actor_id: process.env.GITHUB_ACTOR_ID!,
+  server_url: process.env.GITHUB_SERVER_URL!,
 };
 
 function getNameEmailInput(
@@ -54,3 +55,6 @@ if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.name ${userName}`;
   await $({ stdio: "inherit" })`git config --global user.email ${userEmail}`;
 }
+
+const { hostname } = new URL(githubContext.server_url)
+await $({ stdio: "inherit" })`gh auth setup-git --hostname ${hostname}`
