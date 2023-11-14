@@ -7,18 +7,41 @@ branding:
 
 inputs:
   github-token:
+    description: >
+      GitHub token to use for authentication when pulling and pushing to the
+      GitHub instance defined by 'github-server-url'. By default this uses
+      'github.token'. Change this to a personal access token if you intend to do
+      things that go beyond the scope of the current repository.
     default: ${{ github.token }}
   github-server-url:
+    description: >
+      Server URL like 'https://github.example.org' to use as the scope for the
+      'github-token'. By default this uses 'github.server_url' which is usually
+      'https://github.com'. You shouldn't need to change this.
     default: ${{ github.server_url }}
   # gitlab-token: {}
   # gitlab-server-url: {}
   # bitbucket-token: {}
   # bitbucket-server-url: {}
   user:
+    description: >
+      A 'Name Here <emailhere@example.org>' AiO user name & email string. This
+      is a shortcut alternative to the independant 'user-name' and 'user-email'
+      options that are also available. This defaults to @github-actions[bot].
+      You can set this to the special value 'github-actions' to use the
+      @github-actions[bot] user as the author, or the special 'me' value to use
+      the current 'github.actor' user as the author.
     default: github-actions[bot]
-  user-name: {}
-  user-email: {}
+  user-name:
+    description: >
+      The name of the user. Should be left unspecified if 'user' is specified.
+  user-email:
+    description: >
+      The email of the user. Should be left unspecified if 'user' is specified.
   safe-directory:
+    description: >
+      A multiline list of globs to add to the Git 'safe-directory' list.
+      Defaults to the current directory '.'.
     default: .
 
 runs:
