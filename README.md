@@ -55,8 +55,8 @@ are welcome! ❤️
 
 - **`github-token`:** GitHub token to use for authentication when pulling and
   pushing to the GitHub instance defined by `github-server-url`. By default this
-  uses `github.token`. Change this to a personal access token if you intend to
-  do things that go beyond the scope of the current repository.
+  is unset. You can set this to `github.token` or a personal access token if you
+  want to configure GitHub authentication globally.
 
 - **`github-server-url`:** Server URL like `https://github.example.org` to use
   as the scope for the `github-token`. By default this uses `github.server_url`

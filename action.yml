@@ -9,10 +9,9 @@ inputs:
   github-token:
     description: >
       GitHub token to use for authentication when pulling and pushing to the
-      GitHub instance defined by 'github-server-url'. By default this uses
-      'github.token'. Change this to a personal access token if you intend to do
-      things that go beyond the scope of the current repository.
-    default: ${{ github.token }}
+      GitHub instance defined by 'github-server-url'. By default this is unset.
+      You can set this to 'github.token' or a personal access token if you want
+      to configure GitHub authentication globally.
   github-server-url:
     description: >
       Server URL like 'https://github.example.org' to use as the scope for the

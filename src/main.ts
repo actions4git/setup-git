@@ -60,7 +60,7 @@ if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.email ${userEmail}`;
 }
 
-if (githubToken && githubServerURL) {
+if (githubToken) {
   const prefix = new URL(githubServerURL).origin + "/";
   const basicAuth = Buffer.from(
     `x-access-token:${githubToken}`,
