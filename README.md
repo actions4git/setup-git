@@ -80,6 +80,17 @@ are welcome! ❤️
 
 ### Outputs
 
+TODO!
+
+## Development
+
+![Node.js](https://img.shields.io/static/v1?style=for-the-badge&message=Node.js&color=339933&logo=Node.js&logoColor=FFFFFF&label=)
+
+**How do I test my changes?**
+
+Open a Draft Pull Request and some magic GitHub Actions will run to test the
+action.
+
 <!-- prettier-ignore-start -->
 [safe directories]: https://git-scm.com/docs/git-config/2.35.2#Documentation/git-config.txt-safedirectory
 <!-- prettier-ignore-end -->
