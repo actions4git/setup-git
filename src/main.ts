@@ -1,6 +1,8 @@
+import assert from "node:assert/strict";
 import { $ } from "execa";
 import * as core from "@actions/core";
-import assert from "node:assert/strict";
+import * as tc from "@actions/tool-cache";
+import { glob } from "glob";
 
 const githubContext = {
   actor: process.env.GITHUB_ACTOR!,
@@ -47,17 +49,24 @@ function getNameEmailInput(
   return [name, email];
 }
 
-const version = core.getInput("git-version");
-
+const githubToken = core.getInput("github-token");
+const githubServerURL = core.getInput("github-server-url");
 const [userName, userEmail] = getNameEmailInput("user");
+const safeDirectoryGlobs = core.getMultilineInput("safe-directory");
+const safeDirectories = await glob(safeDirectoryGlobs);
 
 if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.name ${userName}`;
   await $({ stdio: "inherit" })`git config --global user.email ${userEmail}`;
 }
 
-const prefix = new URL(githubContext.server_url).origin + "/";
-const githubToken = core.getInput("token");
+const prefix = new URL(githubServerURL).origin + "/";
 await $({
   stdio: "inherit",
 })`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
+
+for (const safeDirectory of safeDirectories) {
+  await $({
+    stdio: "inherit",
+  })`git config --global --add safe.directory ${safeDirectory}`;
+}

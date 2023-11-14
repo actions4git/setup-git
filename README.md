@@ -22,8 +22,6 @@
 
 </table>
 
-🔢 Lets you pick a specific version of Git to use (if needed) \
-⚡ Defaults to using the system version of Git \
 📂 Lets you add additional [safe directories] \
 🔑 Configures Git to use `github.token` when pushing/pulling from `github.server_url` \
 👤 Sets up <b>@github-actions\[bot\]</b> as the default Git author
@@ -31,6 +29,8 @@
 ## Usage
 
 ![GitHub Actions](https://img.shields.io/static/v1?style=for-the-badge&message=GitHub+Actions&color=2088FF&logo=GitHub+Actions&logoColor=FFFFFF&label=)
+
+**🚀 Here's what you want:**
 
 ```yml
 on: push
@@ -45,3 +45,13 @@ jobs:
       - run: git commit --message 'Prettier' # ✅
       - run: git push # ✅
 ```
+
+### Inputs
+
+⚠️ Support for choosing a `git-version` is not yet implemented. Contributions are welcome! ❤️
+
+### Outputs
+
+<!-- prettier-ignore-start -->
+[safe directories]: https://git-scm.com/docs/git-config/2.35.2#Documentation/git-config.txt-safedirectory
+<!-- prettier-ignore-end -->

@@ -6,13 +6,20 @@ branding:
   color: orange
 
 inputs:
-  token:
+  github-token:
     default: ${{ github.token }}
-  git-version: {}
+  github-server-url:
+    default: ${{ github.server_url }}
+  # gitlab-token: {}
+  # gitlab-server-url: {}
+  # bitbucket-token: {}
+  # bitbucket-server-url: {}
   user:
     default: github-actions[bot]
   user-name: {}
   user-email: {}
+  safe-directory:
+    default: .
 
 runs:
   using: node20
