@@ -56,9 +56,8 @@ if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.email ${userEmail}`;
 }
 
-const { hostname } = new URL(githubContext.server_url);
-const GITHUB_TOKEN = core.getInput("token");
+const prefix = new URL(githubContext.server_url).origin + "/";
+const githubToken = core.getInput("token");
 await $({
   stdio: "inherit",
-  env: { GITHUB_TOKEN },
-})`gh auth setup-git --hostname ${hostname}`;
+})`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
