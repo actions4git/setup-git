@@ -6,6 +6,8 @@ branding:
   color: orange
 
 inputs:
+  token:
+    default: ${{ github.token }}
   git-version: {}
   user:
     default: github-actions[bot]
