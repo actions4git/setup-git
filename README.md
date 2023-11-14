@@ -59,7 +59,7 @@ are welcome! ❤️
 
 - **`github-server-url`:** Server URL like `https://github.example.org` to use
   as the scope for the `github-token`. By default this uses `github.server_url`
-  which is usually `https://github.com`. You shouldn`t need to change this.
+  which is usually `https://github.com`. You shouldn't need to change this.
 
 - **`user`:** A `Name Here <emailhere@example.org>` AiO user name & email
   string. This is a shortcut alternative to the independant `user-name` and
