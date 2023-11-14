@@ -12,15 +12,15 @@ const githubContext = {
 
 function getNameEmailInput(
   input: string,
-  options: { required: true },
+  options: { required: true }
 ): [string, string];
 function getNameEmailInput(
   input: string,
-  options?: { required?: boolean },
+  options?: { required?: boolean }
 ): [string | null, string | null];
 function getNameEmailInput(
   input: string,
-  options: { required?: boolean } = {},
+  options: { required?: boolean } = {}
 ) {
   const { required = false } = options;
   const githubActionsRe = /^\s*@?github[-_]?actions(?:\[bot\])?\s*$/;
@@ -53,7 +53,7 @@ const githubToken = core.getInput("github-token");
 const githubServerURL = core.getInput("github-server-url");
 const [userName, userEmail] = getNameEmailInput("user");
 const safeDirectoryGlobs = core.getMultilineInput("safe-directory");
-const safeDirectories = await glob(safeDirectoryGlobs);
+const safeDirectories = await glob(safeDirectoryGlobs, { absolute: true });
 
 if (userName && userEmail) {
   await $({ stdio: "inherit" })`git config --global user.name ${userName}`;
