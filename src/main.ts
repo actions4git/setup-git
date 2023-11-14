@@ -66,10 +66,10 @@ if (githubToken && githubServerURL) {
     `x-access-token:${githubToken}`,
     "utf8"
   ).toString("base64");
-  // core.setSecret(basicAuth);
+  core.setSecret(basicAuth);
   await $({
     stdio: "inherit",
-  })`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
+  })`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${basicAuth}`}`;
 }
 
 for (const safeDirectory of safeDirectories) {
