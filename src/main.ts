@@ -62,6 +62,11 @@ if (userName && userEmail) {
 
 if (githubToken && githubServerURL) {
   const prefix = new URL(githubServerURL).origin + "/";
+  const basicAuth = Buffer.from(
+    `x-access-token:${githubToken}`,
+    "utf8"
+  ).toString("base64");
+  core.setSecret(basicAuth);
   await $({
     stdio: "inherit",
   })`git config --global http.${prefix}.extraheader ${`AUTHORIZATION: basic ${githubToken}`}`;
