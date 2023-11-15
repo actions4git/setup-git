@@ -40,12 +40,12 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions4git/setup-git@v1
-      - run: git clone "https://github.com/$GITHUB_REPOSITORY.git" . # ✅
       - run: npx --yes prettier --write .
       - run: git add --all
       - run: git commit --message 'Prettier' # ✅
-      - run: git push # ✅
+      - run: git push
 ```
 
 ### Inputs
