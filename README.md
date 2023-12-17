@@ -1,6 +1,6 @@
 # Setup Git environment
 
-🔶 Install and configure Git for GitHub Actions
+🔶 Configure Git for GitHub Actions
 
 <table align=center><td>
 

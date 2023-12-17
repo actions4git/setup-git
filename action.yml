@@ -1,5 +1,5 @@
 name: Setup Git environment
-description: 🔶 Install and configure Git for GitHub Actions
+description: 🔶 Configure Git for GitHub Actions
 
 branding:
   icon: settings
